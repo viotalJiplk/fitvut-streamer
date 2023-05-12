@@ -10,4 +10,3 @@ What it does? It periodicaly downloads last x streams from specified course.
 5. Run `docker compose up -d`
 
 The application is going to run on the adress `http://localhost:port`.
-If you see 
