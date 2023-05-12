@@ -1,0 +1,15 @@
+version: "1.1"
+
+services:
+  fit-video-downloader:
+    build: ./
+    container_name: video-downloader
+    environment:
+      - XLOGIN=${XLOGIN} #your xlogin
+      - PASSWD=${PASSWD} #your wis password
+      - TODWN=${TODWN} #how many streams per each category to download
+      - SCHEDULE=${SCHEDULE} #cron like syntax, escape * with \*
+      - USERS=${USERS} #usernames and passwords for users separeted like (user1 password1:user2 password 2)
+      - TARGETS=${TARGETS} #addresses of sites listing each subjects recordings
+    ports:
+      - ${PORT}:80 #mapping the container port 80 to hosts port (host:container)

@@ -1,0 +1,7 @@
+{
+"recordId": "https://video1.fit.vutbr.cz/av/",
+"casAuthURL": "https://cas.fit.vutbr.cz/cosign.cgi",
+"casDomain": "cas.fit.vutbr.cz",
+"path": "/video/www/",
+"ext": ".mp4"
+}

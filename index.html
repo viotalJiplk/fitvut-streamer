@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream from fit</title>
+    <script>
+        function setPredmety(json){
+            let object = JSON.parse(json);
+            let contentDiv = document.createElement("div");
+            object.forEach(element => {
+                let subjectDiv = document.createElement("div");
+                let h1 = document.createElement("h1");
+                h1.innerText = element[0].predmet
+                subjectDiv.appendChild(h1);
+                element.forEach(element1 => {
+                    let recordDiv = document.createElement("div");
+                    let h3 = document.createElement("h3");
+                    h3.innerText = element1.predmet;
+                    recordDiv.appendChild(h3);
+                    let p = document.createElement("p");
+                    p.innerText = element1.prednaska;
+                    recordDiv.appendChild(p);
+                    let odkaz = document.createElement("a");
+                    odkaz.setAttribute("href", "video/" + element1.id + ".mp4");
+                    odkaz.innerText = "stream!";
+                    recordDiv.appendChild(odkaz);
+                    subjectDiv.appendChild(recordDiv)
+                });
+                contentDiv.appendChild(subjectDiv)
+            });
+            document.body.appendChild(contentDiv);
+            
+        }
+        async function download(){
+            let string = await fetch("data.json");
+            string = await string.text();
+            setPredmety(string);
+        }
+        download()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
