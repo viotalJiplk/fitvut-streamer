@@ -57,9 +57,9 @@ done
 nohup nginx
 echo "nginx has started"
 echo " ${SCHEDULE//"\*"/'*'} python3 /video/video.py >> /video/log.log" > /video/crontab
-./gentargets
+#./gentargets
 crontab /video/crontab
 echo "cron has been set"
-screen -dm -S firstDownload "/video/video.py"
+# screen -dm -S firstDownload "/video/video.py"
 echo "started first download"
-crond -f
+/video/video.py & crond -f

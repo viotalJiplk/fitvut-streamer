@@ -15,6 +15,7 @@ s = requests.Session()
 f = open(str(pathlib.Path(__file__).parent.resolve())+ "/config.json")
 config = json.loads(f.read())
 f.close()
+print("Starting download.")
 
 def getPostString(response, session):
     page = response.content
@@ -131,3 +132,4 @@ def downloadVideo(url, filename, path):
 #downloadVideo('https://video4.fit.vutbr.cz/av/record-download.php?id=63844', "test")
 
 getTargets()
+print("Finished download")

@@ -35,8 +35,21 @@
         }
         async function download(){
             let string = await fetch("data.json");
-            string = await string.text();
-            setPredmety(string);
+            if(string.status == 200){
+                string = await string.text();
+                setPredmety(string);
+            }else{
+                let contentDiv = document.createElement("div");
+                let h1 = document.createElement("h1");
+                h1.innerText = "Nothing here yet. :(";
+                let p1 = document.createElement("p");
+                p1.innerText = "See console for details.";
+                contentDiv.appendChild(h1);
+                contentDiv.appendChild(p1);
+                document.body.appendChild(contentDiv);
+                console.log(string);
+                console.log("If status is 404 videos could be still downloading.");
+            }
         }
         download()
     </script>

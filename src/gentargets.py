@@ -19,8 +19,8 @@ if os.path.exists(configFile):
 else:    
     config["path"] = "/video/www/"
 config["targets"] = argv[1:]
-config["targets"][0] = config["targets"][0][1:]
-config["targets"][-1] = config["targets"][-1][:-1]
+#config["targets"][0] = config["targets"][0][1:]
+#config["targets"][-1] = config["targets"][-1][:-1]
 
 f = open(configFile, 'w+')
 json.dump(config, f)
